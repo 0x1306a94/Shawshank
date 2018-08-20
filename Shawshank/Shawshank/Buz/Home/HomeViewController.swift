@@ -26,11 +26,13 @@ class HomeViewController: UIViewController {
     private var disposeBag = DisposeBag()
 
     private var dataSource: RxTableViewSectionedAnimatedDataSource<HomeViewSectionModel>?
+    
+    private var viewModel = HomeViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initialViews()
-        initialDatas()
+        initialBinds()
         initialLayouts()
     }
     
@@ -41,12 +43,7 @@ class HomeViewController: UIViewController {
         view.addSubview(tableView)
     }
     
-    private func initialDatas() {
-        let sections = [
-            HomeViewSectionModel.init(header: "代理", items: ["启动",]),
-            HomeViewSectionModel.init(header: "高级设置", items: ["自定义 DNS", "智能路由",]),
-        ]
-
+    private func initialBinds() {
         let dataSource = RxTableViewSectionedAnimatedDataSource<HomeViewSectionModel>(
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
@@ -59,7 +56,7 @@ class HomeViewController: UIViewController {
         )
         self.dataSource = dataSource
 
-        Observable.just(sections)
+        viewModel.datas.asObservable()
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         

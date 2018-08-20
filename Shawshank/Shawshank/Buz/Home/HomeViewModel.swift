@@ -30,6 +30,20 @@ extension HomeViewSectionModel: AnimatableSectionModelType {
     }
 }
 
-struct HomeViewCellModel {
-    var itemTitle: String
+class HomeViewModel {
+    public var datas = Variable([HomeViewSectionModel]())
+    
+    init() {
+        initialDatas()
+    }
+    
+    private func initialDatas() {
+        // 配置 data 初始值
+        var value: [HomeViewSectionModel] = []
+        value.append(HomeViewSectionModel(header: "代理", items: ["启动",]))
+        value.append(HomeViewSectionModel(header: "高级设置", items: ["自定义 DNS", "智能路由",]))
+        datas.value = value
+        
+        
+    }
 }

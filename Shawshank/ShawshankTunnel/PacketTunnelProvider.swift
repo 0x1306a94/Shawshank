@@ -54,12 +54,12 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let algorithm: CryptoAlgorithm
         
         switch method {
-        case "AES128CFB":algorithm = .AES128CFB
-        case "AES192CFB":algorithm = .AES192CFB
-        case "AES256CFB":algorithm = .AES256CFB
-        case "CHACHA20":algorithm = .CHACHA20
-        case "SALSA20":algorithm = .SALSA20
-        case "RC4MD5":algorithm = .RC4MD5
+        case "AES128CFB": algorithm = .AES128CFB
+        case "AES192CFB": algorithm = .AES192CFB
+        case "AES256CFB": algorithm = .AES256CFB
+        case "CHACHA20": algorithm = .CHACHA20
+        case "SALSA20": algorithm = .SALSA20
+        case "RC4MD5": algorithm = .RC4MD5
         default:
             fatalError("Undefined algorithm!")
         }
@@ -134,7 +134,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                     DDLogDebug("received network change notifcation")
                     let delayTime = DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
                     DispatchQueue.main.asyncAfter(deadline: delayTime) {
-                        self.startTunnel(options: nil){_ in}
+                        self.startTunnel(options: nil) { _ in }
                     }
                 }
             }else{
