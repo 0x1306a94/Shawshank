@@ -13,15 +13,31 @@ import RxDataSources
 import Differentiator
 
 struct HomeViewSectionModel {
-    var header: String
+    enum Category {
+        case proxy(Bool)
+        case config(Bool)
+    }
+
+    var header: Category
     var items: [Item]
+}
+
+extension HomeViewSectionModel.Category {
+    var title: String {
+        get {
+            switch self {
+            case .proxy(_): return "代理"
+            case .config(_): return "高级设置"
+            }
+        }
+    }
 }
 
 extension HomeViewSectionModel: AnimatableSectionModelType {
     typealias Item = String
 
     var identity: String {
-        return header
+        return header.title
     }
 
     init(original: HomeViewSectionModel, items: [HomeViewSectionModel.Item]) {
@@ -31,19 +47,40 @@ extension HomeViewSectionModel: AnimatableSectionModelType {
 }
 
 class HomeViewModel {
-    public var datas = Variable([HomeViewSectionModel]())
-    
+
+    private var disposeBag = DisposeBag()
+
+    private(set) var datas = Variable([HomeViewSectionModel]())
+    private(set) var vpnState = Variable(VpnManager.shared.vpnStatus)
+
     init() {
         initialDatas()
+        initialBinds()
     }
     
     private func initialDatas() {
         // 配置 data 初始值
+        updateDatas()
+    }
+
+    private func initialBinds() {
+        NotificationCenter.default.rx
+            .notification(.SSKVpnStatusChanged)
+            .subscribe { _ in
+                self.updateDatas()
+            }
+            .disposed(by: disposeBag)
+    }
+
+    private func updateDatas() {
         var value: [HomeViewSectionModel] = []
-        value.append(HomeViewSectionModel(header: "代理", items: ["启动",]))
-        value.append(HomeViewSectionModel(header: "高级设置", items: ["自定义 DNS", "智能路由",]))
+        switch VpnManager.shared.vpnStatus {
+        case .connecting, .on:
+            value.append(HomeViewSectionModel(header: .proxy(true), items: ["关闭",]))
+        case .disconnecting, .off:
+            value.append(HomeViewSectionModel(header: .proxy(true), items: ["启动",]))
+        }
+        value.append(HomeViewSectionModel(header: .config(true), items: ["自定义 DNS", "智能路由",]))
         datas.value = value
-        
-        
     }
 }

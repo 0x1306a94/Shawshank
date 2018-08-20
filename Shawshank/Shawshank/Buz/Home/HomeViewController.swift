@@ -83,7 +83,10 @@ class HomeViewController: UIViewController {
 extension HomeViewController {
     private func itemSelected(_ tableView: UITableView?, indexPath: IndexPath, item: HomeViewSectionModel.Item) {
         tableView?.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && item.identity == "关闭" {
+            VpnManager.shared.disconnect()
+        }
+        else if indexPath.row == 0 && item.identity == "启动" {
             VpnManager.shared.connect()
         }
     }

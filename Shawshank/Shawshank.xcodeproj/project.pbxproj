@@ -35,6 +35,7 @@
 		84F3563E211FC4870068CA96 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F3563D211FC4870068CA96 /* RxDataSources.framework */; };
 		84F35640211FC4FB0068CA96 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F3563F211FC4FB0068CA96 /* Differentiator.framework */; };
 		84F356422121087D0068CA96 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F356412121087D0068CA96 /* SnapKit.framework */; };
+		84FDE9EA212A86A100F56F6C /* VpnHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FDE9E9212A86A100F56F6C /* VpnHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		84F3563D211FC4870068CA96 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		84F3563F211FC4FB0068CA96 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		84F356412121087D0068CA96 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		84FDE9E9212A86A100F56F6C /* VpnHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +226,7 @@
 		8488A1A321219D410009F6B2 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				8488A1A421219D670009F6B2 /* VpnManager.swift */,
+				84FDE9E8212A868D00F56F6C /* Vpn */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -271,6 +273,15 @@
 				84F35608211ECB240068CA96 /* ShawshankTunnel.entitlements */,
 			);
 			path = ShawshankTunnel;
+			sourceTree = "<group>";
+		};
+		84FDE9E8212A868D00F56F6C /* Vpn */ = {
+			isa = PBXGroup;
+			children = (
+				8488A1A421219D670009F6B2 /* VpnManager.swift */,
+				84FDE9E9212A86A100F56F6C /* VpnHelper.swift */,
+			);
+			path = Vpn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84705057211EB8590000866F /* HomeViewController.swift in Sources */,
+				84FDE9EA212A86A100F56F6C /* VpnHelper.swift in Sources */,
 				840A9C3521214AF600D3209C /* HomeViewModel.swift in Sources */,
 				8488A1A521219D670009F6B2 /* VpnManager.swift in Sources */,
 				84705055211EB8590000866F /* AppDelegate.swift in Sources */,
