@@ -24,7 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fileLogger.rollingFrequency = TimeInterval(60 * 60 * 24)  // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
-
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = .white
+        window.makeKeyAndVisible()
+        
+        let rootController = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: rootController)
+        window.rootViewController = navigationController
+        
+        self.window = window
         return true
     }
 

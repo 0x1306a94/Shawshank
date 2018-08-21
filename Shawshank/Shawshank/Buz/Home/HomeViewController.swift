@@ -15,7 +15,7 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
 
     private let tableView: UITableView = {
         var tableView = UITableView(frame: .zero, style: .grouped)
@@ -23,27 +23,18 @@ class HomeViewController: UIViewController {
         return tableView
     }()
 
-    private var disposeBag = DisposeBag()
-
     private var dataSource: RxTableViewSectionedAnimatedDataSource<HomeViewSectionModel>?
     
     private var viewModel = HomeViewModel()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initialViews()
-        initialBinds()
-        initialLayouts()
-    }
-    
-    private func initialViews() {
+    override func initialViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Shawshank"
         
         view.addSubview(tableView)
     }
     
-    private func initialBinds() {
+    override func initialBinds() {
         let dataSource = RxTableViewSectionedAnimatedDataSource<HomeViewSectionModel>(
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
@@ -72,7 +63,7 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func initialLayouts() {
+    override func initialLayouts() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

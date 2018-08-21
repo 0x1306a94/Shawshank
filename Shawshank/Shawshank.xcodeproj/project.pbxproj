@@ -15,6 +15,8 @@
 		8470505F211EB85A0000866F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8470505D211EB85A0000866F /* LaunchScreen.storyboard */; };
 		8470506A211EB85A0000866F /* ShawshankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705069211EB85A0000866F /* ShawshankTests.swift */; };
 		8488A1A521219D670009F6B2 /* VpnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488A1A421219D670009F6B2 /* VpnManager.swift */; };
+		84B06C4A212B27EE00E073D4 /* HomeProxyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06C49212B27EE00E073D4 /* HomeProxyTableViewCell.swift */; };
+		84B06C4D212BA03400E073D4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06C4C212BA03400E073D4 /* BaseViewController.swift */; };
 		84DB582B2128400E0010AB88 /* NEKitRule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 84DB582A2128400E0010AB88 /* NEKitRule.conf */; };
 		84F355FE211EB99D0068CA96 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F355FD211EB99D0068CA96 /* NetworkExtension.framework */; };
 		84F35606211ECB240068CA96 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F35605211ECB240068CA96 /* PacketTunnelProvider.swift */; };
@@ -82,6 +84,8 @@
 		84705069211EB85A0000866F /* ShawshankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShawshankTests.swift; sourceTree = "<group>"; };
 		8470506B211EB85A0000866F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8488A1A421219D670009F6B2 /* VpnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnManager.swift; sourceTree = "<group>"; };
+		84B06C49212B27EE00E073D4 /* HomeProxyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProxyTableViewCell.swift; sourceTree = "<group>"; };
+		84B06C4C212BA03400E073D4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		84DB582A2128400E0010AB88 /* NEKitRule.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEKitRule.conf; sourceTree = "<group>"; };
 		84F355FB211EB98A0068CA96 /* Shawshank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shawshank.entitlements; sourceTree = "<group>"; };
 		84F355FD211EB99D0068CA96 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
@@ -157,6 +161,7 @@
 			children = (
 				84705056211EB8590000866F /* HomeViewController.swift */,
 				840A9C3421214AF600D3209C /* HomeViewModel.swift */,
+				84B06C49212B27EE00E073D4 /* HomeProxyTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 		8488A1A221219D0C0009F6B2 /* Buz */ = {
 			isa = PBXGroup;
 			children = (
+				84B06C4B212BA02000E073D4 /* Basic */,
 				840A9C3221214A2D00D3209C /* Home */,
 			);
 			path = Buz;
@@ -229,6 +235,14 @@
 				84FDE9E8212A868D00F56F6C /* Vpn */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		84B06C4B212BA02000E073D4 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				84B06C4C212BA03400E073D4 /* BaseViewController.swift */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		84DB582921283FFF0010AB88 /* Resource */ = {
@@ -471,6 +485,8 @@
 				840A9C3521214AF600D3209C /* HomeViewModel.swift in Sources */,
 				8488A1A521219D670009F6B2 /* VpnManager.swift in Sources */,
 				84705055211EB8590000866F /* AppDelegate.swift in Sources */,
+				84B06C4D212BA03400E073D4 /* BaseViewController.swift in Sources */,
+				84B06C4A212B27EE00E073D4 /* HomeProxyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

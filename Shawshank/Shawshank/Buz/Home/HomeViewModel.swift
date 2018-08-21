@@ -18,7 +18,7 @@ struct HomeViewSectionModel {
         case config(Bool)
     }
 
-    var header: Category
+    var sectionType: Category
     var items: [Item]
 }
 
@@ -37,7 +37,7 @@ extension HomeViewSectionModel: AnimatableSectionModelType {
     typealias Item = String
 
     var identity: String {
-        return header.title
+        return sectionType.title
     }
 
     init(original: HomeViewSectionModel, items: [HomeViewSectionModel.Item]) {
@@ -76,11 +76,11 @@ class HomeViewModel {
         var value: [HomeViewSectionModel] = []
         switch VpnManager.shared.vpnStatus {
         case .connecting, .on:
-            value.append(HomeViewSectionModel(header: .proxy(true), items: ["关闭",]))
+            value.append(HomeViewSectionModel(sectionType: .proxy(true), items: ["关闭",]))
         case .disconnecting, .off:
-            value.append(HomeViewSectionModel(header: .proxy(true), items: ["启动",]))
+            value.append(HomeViewSectionModel(sectionType: .proxy(true), items: ["启动",]))
         }
-        value.append(HomeViewSectionModel(header: .config(true), items: ["自定义 DNS", "智能路由",]))
+        value.append(HomeViewSectionModel(sectionType: .config(true), items: ["自定义 DNS", "智能路由",]))
         datas.value = value
     }
 }
